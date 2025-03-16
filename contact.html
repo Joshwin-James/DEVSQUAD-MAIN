@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | DEVSQUAD Studios</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="theme.js" defer></script>
+</head>
+
+<body>
+    <button id="theme-toggle" aria-label="Toggle dark mode">
+        <i class="theme-icon">🌙</i>
+    </button>
+        <nav class="navbar ">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="joinus.html">Join Us</a></li>
+                <li><a href="esports.html">Esports</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p class="section-description">We'd love to hear from you! If you have any questions or inquiries, please reach out to us using the form below or find our contact details at the bottom.</p>
+
+            <!-- Contact Form -->
+            <form action="submit-form.php" method="post" class="contact-form" data-aos="fade-up">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message" rows="6" required></textarea>
+
+                <button type="submit" class="cta-button">Send Message</button>
+            </form>
+
+            <!-- Contact Info Section -->
+            <div class="contact-info" data-aos="fade-up" data-aos-delay="200">
+                <h3>Our Office</h3>
+                <p>Visit us at:</p>
+                <p><strong>DEVSQUAD Studios</strong><br>
+                   1234 Studio Avenue<br>
+                   City, State, ZIP Code</p>
+
+                <h3>Phone</h3>
+                <p>+1 (123) 456-7890</p>
+
+                <h3>Email</h3>
+                <p><a href="mailto:info@devsquadstudios.com">info@devsquadstudios.com</a></p>
+            </div>
+
+            <!-- Google Map -->
+            <div class="map-container" data-aos="fade-up" data-aos-delay="400">
+                <h3>Find Us</h3>
+                <iframe src="https://www.google.com/maps/embed?pb=...Your_Google_Maps_Embed_Code_Here..." width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 DEVSQUAD Studios. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init(); // Initialize animations
+    </script>
+</body>
+
+</html>

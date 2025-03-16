@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Us | DEVSQUAD Studios</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="theme.js" defer></script>
+</head>
+
+<body>
+    <button id="theme-toggle" aria-label="Toggle dark mode">
+        <i class="theme-icon">🌙</i>
+    </button>
+    <header>
+        <div class="logo-container">
+            <img src="logo.png.png" alt="DEVSQUAD Studios Logo" class="logo">
+        </div>
+        <nav class="navbar ">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="joinus.html">Join Us</a></li>
+                <li><a href="esports.html">Esports</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Join Us Section -->
+    <section class="join-us">
+        <div class="container">
+            <h2>Join Us at DEVSQUAD Studios</h2>
+            <p>We are always looking for talented individuals to join our team. Explore our current job openings below or apply for a general position.</p>
+
+            <!-- Job Offers for Admins -->
+            <div class="job-offers">
+                <h3>Current Job Openings</h3>
+                <div class="job-card">
+                    <h4>Web Developer</h4>
+                    <p><strong>Location:</strong> Remote</p>
+                    <p><strong>Requirements:</strong> Experience with HTML, CSS, JavaScript, React.js</p>
+                    <a href="apply-job.html?job=web-developer" class="apply-button">Apply Now</a>
+                </div>
+
+                <div class="job-card">
+                    <h4>Graphic Designer</h4>
+                    <p><strong>Location:</strong> In-office (New York)</p>
+                    <p><strong>Requirements:</strong> Experience with Adobe Photoshop, Illustrator</p>
+                    <a href="apply-job.html?job=graphic-designer" class="apply-button">Apply Now</a>
+                </div>
+
+                <!-- Additional job posts can be added here in the same structure -->
+            </div>
+
+            <!-- General Position Application -->
+            <div class="general-application">
+                <h3>Apply for a General Position</h3>
+                <form id="generalApplicationForm" onsubmit="handleGeneralApplication(event)">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="message">Cover Letter:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+
+                    <button type="submit" class="cta-button">Submit Application</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 DEVSQUAD Studios. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+    async function handleGeneralApplication(event) {
+        event.preventDefault();
+        
+        const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            message: document.getElementById('message').value
+        };
+
+        try {
+            const response = await fetch('/submit-general-application', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            });
+
+            if (!response.ok) {
+                throw new Error('Application submission failed');
+            }
+
+            alert('Application submitted successfully!');
+            document.getElementById('generalApplicationForm').reset();
+        } catch (error) {
+            alert('Error submitting application: ' + error.message);
+        }
+    }
+    </script>
+
+</body>
+
+</html>

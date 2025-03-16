@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply for Job - DEVSQUAD Studios</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Logo Section -->
+    <div class="logo-container">
+        <img src="logo.png.png" alt="DEVSQUAD Studios Logo" class="logo">
+    </div>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="joinus.html">Join Us</a></li>
+            <li><a href="esports.html">Esports</a></li>
+        </ul>
+    </nav>
+    <!-- Apply Job Section -->
+    <section id="apply-job" class="apply-job">
+        <div class="container">
+            <h2>Apply for a Job</h2>
+            <p>Join our team and be a part of something amazing!</p>
+            <!-- Job Application Form -->
+            <form id="jobApplicationForm" onsubmit="handleJobApplication(event)">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="position">Position:</label>
+                <select id="position" name="position" required>
+                    <option value="developer">Developer</option>
+                    <option value="designer">Designer</option>
+                    <option value="manager">Manager</option>
+                </select>
+
+                <label for="resume">Resume:</label>
+                <input type="file" id="resume" name="resume" required>
+
+                <button type="submit" class="cta-button">Apply Now</button>
+            </form>
+        </div>
+    </section>
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 DEVSQUAD Studios. All Rights Reserved.</p>
+            <div class="social-links">
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+                <a href="#">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+    <script>
+    async function handleJobApplication(event) {
+        event.preventDefault();
+        
+        const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            position: document.getElementById('position').value,
+            resume: document.getElementById('resume').value
+        };
+
+        try {
+            const response = await fetch('/apply-job', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            });
+
+            if (!response.ok) {
+                throw new Error('Application submission failed');
+            }
+
+            alert('Application submitted successfully!');
+            document.getElementById('jobApplicationForm').reset();
+        } catch (error) {
+            alert('Error submitting application: ' + error.message);
+        }
+    }
+    </script>
+</body>
+</html>
